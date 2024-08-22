@@ -1,0 +1,45 @@
+.fixed-button {
+    position: fixed;
+    bottom: 20px; /* Ajusta la distancia del botón desde la parte inferior de la pantalla */
+    left: 50%; /* Opcional: si deseas alinear el botón en el centro horizontal */
+    transform: translateX(-50%);
+  }
+
+
+  .pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-link {
+  cursor: pointer;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.img-thumbnail {
+  border: none;
+}
+
+.page-item.disabled .page-link {
+  cursor: not-allowed;
+  pointer-events: none;
+  color: #6c757d;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+
+.page-item .page-link {
+  color: #007bff;
+}
+
+.page-item .page-link:hover {
+  color: #0056b3;
+}
+
+.mt-2 {
+  margin-top: 10px;
+}

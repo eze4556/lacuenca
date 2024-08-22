@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      Bienvenido
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        <img src="../../../assets/883b5c0e-0239-4837-8652-f890c3da7c3e.jpeg" alt="Logo 2" width="20%" height="20%">
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="ion-text-center">
+      <strong> Desde el home puede acceder a cada una de sus pantallas solamente pulsando sobre ellas  </strong>
+     <strong> <p>CLICKEANDO LA IMAGEN, TE DIRIGIS AL SITIO WEB</p></strong>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card (click)="navigateToPage1()" class="centro-vertical">
+
+          <ion-icon name="copy-outline" class="icono-grande"></ion-icon>            <ion-card-header>
+            <ion-card-title>Categoria</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <!-- <ion-col size="6">
+        <ion-card (click)="navigateToPage3()" class="centro-vertical">
+          <ion-icon name="pricetag" class="icono-grande"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>Productos</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col> -->
+
+      <ion-col size="6">
+        <ion-card (click)="navigateToPage5()" class="centro-vertical">
+<ion-icon name="newspaper-outline" class="icono-grande"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>Noticias</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+<!--
+      <ion-col size="6">
+        <ion-card (click)="navigateToPage4()" class="centro-vertical">
+          <ion-icon name="bag-add-outline" class="icono-grande"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>Nuevos Productos</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col> -->
+
+      <!-- <ion-col size="6">
+        <ion-card (click)="navigateToPage6()" class="centro-vertical">
+          <ion-icon name="dice-outline" class="icono-grande"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>Sorteo</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col> -->
+
+      <ion-col size="6">
+        <ion-card (click)="navigateToPage7()" class="centro-vertical">
+          <ion-icon name="people-outline" class="icono-grande"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>Banner Publicidad</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <!-- <ion-col size="6">
+  <ion-card (click)="navigateToPage11()" class="centro-vertical">
+    <ion-icon name="star-outline" class="icono-grande"></ion-icon>
+    <ion-card-header>
+      <ion-card-title>Comentarios</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+</ion-col> -->
+
+
+      <!-- <ion-col size="6">
+        <ion-card (click)="navigateToPage8()" class="centro-vertical">
+          <ion-icon name="exit" class="icono-grande"></ion-icon>
+            <ion-card-header>
+            <ion-card-title>Cerrar Sesion</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col> -->
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

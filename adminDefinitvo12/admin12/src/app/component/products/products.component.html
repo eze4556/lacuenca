@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">{{ titulo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="nombre" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea formControlName="descripcion"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Precio</ion-label>
+      <ion-input formControlName="precio" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descuento</ion-label>
+      <ion-input formControlName="descuento" type="number"></ion-input>
+    </ion-item>
+
+       <ion-item>
+      <ion-label position="floating">Precio Final</ion-label>
+      <ion-input formControlName="precioFinal" type="number"></ion-input>
+    </ion-item>
+
+       <ion-item>
+      <ion-label position="floating">Precio Distribuidor</ion-label>
+      <ion-input formControlName="precioDistribuidor" type="number"></ion-input>
+    </ion-item>
+
+ <ion-item>
+      <ion-label position="floating">Etiqueta</ion-label>
+      <ion-input formControlName="etiqueta" type="text"></ion-input>
+    </ion-item>
+
+
+
+
+
+
+    <ion-item>
+      <ion-label position="floating">Categorías</ion-label>
+      <ion-select formControlName="categorias" multiple="true">
+        <ion-select-option *ngFor="let categoria of categorias" [value]="categoria._id">{{ categoria.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+
+<ion-item *ngIf="!id"> <!-- Mostrar solo si no estás editando un producto -->
+  <ion-label>Imagen</ion-label>
+  <input type="file" (change)="onFileSelected($event)">
+</ion-item>
+
+<ion-item *ngIf="imagenUrl"> <!-- Mostrar solo si hay una imagen existente -->
+  <ion-label>Imagen seleccionada</ion-label>
+  <ion-img [src]="imagenUrl" class="imagen-seleccionada"></ion-img>
+</ion-item>
+
+
+
+
+
+    <!-- Botón de envío -->
+<!--
+<ion-button expand="block" type="submit">
+  {{ id ? 'Actualizar' : 'Guardar' }}
+</ion-button> -->
+
+
+
+    <ion-button expand="block" type="submit">Guardar</ion-button>
+  </form>
+</ion-content>
