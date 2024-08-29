@@ -13,6 +13,14 @@ export class EventsComponent implements OnInit {
   fotoPerfil: File | null = null;
   eventForm: FormGroup;
 
+
+
+  // Variables para estilos seleccionados
+  negrita = false;
+  subrayado = false;
+  tamano = '24px';
+  color = '#000000';
+
   goBack() {
     window.history.back();
   }
@@ -27,6 +35,10 @@ export class EventsComponent implements OnInit {
     this.eventForm = this.fb.group({
       imagen: ['', Validators.required],
       titulo: ['', Validators.required],
+      negrita: [false],
+      subrayado: [false],
+      tamano: ['24px'],
+      color: ['#000000'],
       fecha: ['', Validators.required],
       descripcion: ['', Validators.required],
     })
@@ -34,6 +46,16 @@ export class EventsComponent implements OnInit {
   }
   ngOnInit(): void {
     this.esEditar();
+  }
+
+
+  get estilos() {
+    return {
+      'font-weight': this.eventForm.get('negrita')?.value ? 'bold' : 'normal',
+      'text-decoration': this.eventForm.get('subrayado')?.value ? 'underline' : 'none',
+      'font-size': this.eventForm.get('tamano')?.value,
+      'color': this.eventForm.get('color')?.value
+    };
   }
 
   // agregarEvento(){
