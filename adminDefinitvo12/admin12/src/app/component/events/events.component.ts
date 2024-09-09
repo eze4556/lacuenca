@@ -4,6 +4,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { EventoService } from 'src/app/services/evento.service'
 import { event } from 'src/app/models/evento'
+import { CategoriaService } from 'src/app/services/categoria.service';
+import { Categoria } from 'src/app/models/categoria';
+
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -12,6 +15,8 @@ import { event } from 'src/app/models/evento'
 export class EventsComponent implements OnInit {
   fotoPerfil: File | null = null;
   eventForm: FormGroup;
+     categorias: Categoria[] = [];
+
 
 
 
@@ -31,6 +36,7 @@ export class EventsComponent implements OnInit {
               private router: Router,
               private alertCtrl: AlertController,
               private _eventoService: EventoService,
+              private categoriaService: CategoriaService ,
               private aRouter: ActivatedRoute){
     this.eventForm = this.fb.group({
       imagen: ['', Validators.required],
@@ -41,11 +47,13 @@ export class EventsComponent implements OnInit {
       color: ['#000000'],
       fecha: ['', Validators.required],
       descripcion: ['', Validators.required],
+      categorias: [[]],
     })
     this.id = this.aRouter.snapshot.paramMap.get('id');
   }
   ngOnInit(): void {
     this.esEditar();
+    this.obtenerCategorias();
   }
 
 
@@ -98,6 +106,22 @@ export class EventsComponent implements OnInit {
 
       console.log('FormData:', formData);
 
+
+
+// Obtener las categorías seleccionadas del formulario
+      const categoriasSeleccionadas = this.eventForm.get('categorias')?.value;
+
+
+      // Log de las categorías seleccionadas
+      console.log('Categorías seleccionadas:', categoriasSeleccionadas);
+
+
+      if (categoriasSeleccionadas) {
+        categoriasSeleccionadas.forEach((categoria: string) => {
+          formData.append('categorias[]', categoria); // Agregar categorías al FormData
+        });
+      }
+
       this._eventoService.createEventoWithImage(formData).subscribe({
         next: (response) => {
           console.log('Evento creada correctamente:', response);
@@ -121,6 +145,14 @@ export class EventsComponent implements OnInit {
 
     await alert.present();
   }
+
+   obtenerCategorias() {
+    this.categoriaService.getAllCategorias().subscribe(categorias => {
+      this.categorias = categorias;
+    });
+  }
+
+
 
   esEditar(){
     if(this.id !== null){

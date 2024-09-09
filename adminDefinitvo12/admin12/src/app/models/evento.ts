@@ -4,5 +4,6 @@ export interface event {
     // nombre: string,
     titulo: string,
     fecha: Date,
-    descripcion:string
+    descripcion:string,
+    categorias: string[];
   }
